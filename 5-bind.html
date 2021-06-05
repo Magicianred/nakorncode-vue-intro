@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
+</head>
+<body>
+  <div id="app">
+    <div class="section">
+      <!-- <div class="button" v-bind:class="btnClass">Button</div> -->
+      <div class="button" :class="btnClass">Button</div>
+      <input v-model="btnClass" type="text" class="input">
+
+      <hr>
+
+      <!-- <a v-bind:href="link" v-bind:target="isBlank ? '_blank' : ''">Link me</a> -->
+      <a :href="link" :target="isBlank ? '_blank' : ''">Link me</a>
+      <input v-model="link" type="text" class="input">
+      <label>
+        <input v-model="isBlank" type="checkbox"> is blank?
+      </label>
+
+      <hr>
+
+      <h1 class="title" :style="h1Style">Change me!</h1>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        btnClass: 'is-link',
+        link: 'http://example.com',
+        isBlank: false,
+        h1Style: {
+          color: 'yellow',
+          backgroundColor: 'black',
+          border: '3px solid red'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

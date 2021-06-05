@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+</head>
+<body>
+  <!-- main -->
+  <div id="app">
+    <ul>
+      <li>{{ text }}</li>
+      <li>{{ number }}</li>
+      <li>{{ bool }}</li>
+      <li>{{ object }}</li>
+      <li>{{ Number(n1) + Number(n2) }}</li>
+      <li>{{ sum }}</li>
+      <li>{{ sumFn(n1, n2) }}</li>
+    </ul>
+    <input v-model="n1" type="number">
+    <input v-model="n2" type="number">
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app', // select element
+      data: { // ชุดข้อมูลที่มี
+        text: 'hello',
+        number: 12,
+        bool: true,
+        object: {
+          foo: 'bar',
+          zoo: 'baz'
+        },
+        n1: 5,
+        n2: 3
+      },
+      computed: { // ชุดข้อมูล ที่ต้องถูกคำนวณ
+        sum () {
+          return this.sumFn(this.n1, this.n2)
+          // return Number(this.n1) + Number(this.n2)
+        }
+      },
+      methods: { // methods
+        sumFn (a, b) {
+          return Number(a) + Number(b)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

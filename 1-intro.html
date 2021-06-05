@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ firstName }} {{ lastName }}</h1>
+    <input type="text" v-model="firstName">
+    <input type="text" v-model="lastName">
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        firstName: '',
+        lastName: ''
+      }
+    })
+  </script>
+
+  <hr>
+  <div id="regular">
+    <h1>
+      <span id="first"></span>
+      <span id="last"></span>
+    </h1>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+  </div>
+
+  <script>
+    const first = document.getElementById('first')
+    const last = document.getElementById('last')
+    const input1 = document.getElementById('input1')
+    const input2 = document.getElementById('input2')
+
+    input1.addEventListener('input', (event) => {
+      first.innerText = event.currentTarget.value
+    })
+    input2.addEventListener('input', (event) => {
+      last.innerText = event.currentTarget.value
+    })
+  </script>
+  
+</body>
+</html>

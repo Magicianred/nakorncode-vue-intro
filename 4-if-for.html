@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-if="isOk" style="color: green;">Ok!</li>
+      <li v-else style="color: red;">Not ok!</li>
+
+      <li v-if="age > 60">Old</li>
+      <li v-else-if="age > 22">Adult</li>
+      <li v-else>Young</li>
+    </ul>
+
+    <ul>
+      <li v-for="(fruit, i) of fruits">
+        {{ i }}: {{ fruit }}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="(value, key) in person">
+        {{ key }}: {{ value }}
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        isOk: true,
+        age: 18,
+        fruits: [
+          'Apple',
+          'Banana',
+          'Cherry'
+        ],
+        person: {
+          name: 'John',
+          age: 18,
+          isActive: true
+        }
+      }
+    })
+  </script>
+</body>
+</html>

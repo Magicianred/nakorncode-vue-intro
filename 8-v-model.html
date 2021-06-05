@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
+</head>
+<body>
+  <div id="app">
+    <div class="section">
+      <!-- <input type="text" class="input" @input="onInput" :value="text"> -->
+      <input type="text" class="input" v-model="text">
+      <div class="message">
+        <div class="message-body">{{ text }}</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        text: ''
+      },
+      mounted () {
+        setInterval(() => {
+          this.text = 'EDIT ME!'
+        }, 10000)
+      },
+      methods: {
+        onInput (event) {
+          this.text = event.currentTarget.value
+        }
+      }
+    })
+  </script>
+</body>
+</html>
